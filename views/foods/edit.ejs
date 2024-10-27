@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editing <%= Item %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit <%= food.type %> at <%= food.name %></h1>
+  <form 
+  action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT"
+  method="POST"
+>
+    <label for="name">Name:</label>
+    <input 
+      type="text" 
+      name="name" 
+      id="name" 
+      value="<%= food.name %>"
+    >
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type" value="<%= food.type %>">
+    
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"><%= food.notes %></textarea>
+  
+    
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <option 
+        value="interested" 
+        <%= food.status === "interested" ? "selected" : "" %>
+      >
+        Interested
+      </option>
+      <option 
+        value="good" 
+        <%= food.status === "good" ? "selected" : "" %>
+      >
+        Good
+      </option>
+      <option 
+        value="normal" 
+        <%= food.status === "normal" ? "selected" : "" %> 
+      >
+      Normal
+      </option>
+      <option 
+        value="unsatisfing" 
+        <%= food.status === "unsatisfing" ? "selected" : "" %>
+      >
+      Unsatisfing
+      </option>
+      <option
+        value="bad"
+        <%= food.status === "bad" ? "selected" : "" %>
+      >
+        bad
+      </option>
+    </select>
+    <button type="submit">Update Item</button>
+  </form>
+</body>
+</html>

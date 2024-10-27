@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.name %>'s </title>
+</head>
+<body>
+    <h1><%= user.name %>'s</h1>
+    <h2>Pantry Items:</h2>
+    <ul>
+        <% user.pantryItems.forEach(item => { %>
+            <li><%= item.name %> - <%= item.quantity %></li>
+        <% }); %>
+    </ul>
+    <a href="/users">Back to Community</a>
+</body>
+</html>
